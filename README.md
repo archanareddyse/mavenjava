@@ -21,7 +21,7 @@ Copy the HTTPs URL as shown to be copied into Jenkins!
 Open Git Bash to push the project into GitHub!
 copy the eclipse file make into working directory by git init
 now copy the http code by 
-$ git remote add origin http code https://github.com/archanareddyse/mavenweb.git
+$ git remote add origin http code https://github.com/archanareddyse/mavenjava.git
 $ git remote -v
 $ git push origin -u main
 now refresh by the github we see all will be uploaded here
