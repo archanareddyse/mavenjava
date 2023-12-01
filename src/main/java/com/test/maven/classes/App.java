@@ -2,7 +2,7 @@ package com.test.maven.classes;
 
 /**
  * Hello world!
- *
+ 
  */
 */
 public class App 
