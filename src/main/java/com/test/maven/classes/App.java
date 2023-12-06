@@ -1,7 +1,7 @@
 package com.test.maven.classes;
 
 /**
- * Hello0000000 world!
+ * Hello world!
  *
  */
 
