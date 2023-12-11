@@ -9,6 +9,6 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hellllliiiiiiiiiiiiiiiiiiiiiiiiiiiiilo World!" );
+        System.out.println( "Hellllilo World!" );
     }
 }
