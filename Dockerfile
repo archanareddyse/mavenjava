@@ -1,25 +1,30 @@
-# Step 1: Use a Maven image with JDK for building the application
+# Stage 1: Build the application
 FROM maven:3.8.5-openjdk-17 AS build
 
-# Step 2: Set the working directory inside the container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Step 3: Copy the pom.xml file and download dependencies
+# Copy the pom.xml file and download dependencies (to leverage Docker cache)
 COPY pom.xml .
 RUN mvn dependency:go-offline
 
-# Step 4: Copy the application source code and build the application
+# Copy the source code into the container
 COPY src ./src
+
+# Build the application
 RUN mvn package -DskipTests
 
-# Step 5: Use a minimal base image for running the application
+# Stage 2: Run the application
 FROM openjdk:17-jdk-slim
 
-# Step 6: Set the working directory inside the container
+# Set the working directory inside the container
 WORKDIR /app
 
-# Step 7: Copy the built JAR file from the build stage
-COPY --from=build /app/target/maven.jar ./mavenjava.jar
+# Copy the built JAR file from the build stage
+COPY --from=build /app/target/*.jar ./app.jar
 
-# Step 8: Specify the command to run the application
-CMD ["java", "-jar", "mavenjava.jar"]
+# Expose the port the application runs on (optional)
+EXPOSE 8080
+
+# Specify the command to run the application
+CMD ["java", "-jar", "app.jar"]
