@@ -19,7 +19,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Step 7: Copy the built JAR file from the build stage
-COPY --from=build /app/target/your-app-name.jar ./your-app-name.jar
+COPY --from=build /app/target/maven.jar ./maven.jar
 
 # Step 8: Specify the command to run the application
-CMD ["java", "-jar", "your-app-name.jar"]
+CMD ["java", "-jar", "maven.jar"]
