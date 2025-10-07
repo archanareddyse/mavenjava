@@ -7,7 +7,7 @@ package com.test.maven.classes;
 
 public class App 
 {
-    public static void main( String[] args )
+    public static void main( String[] args 
     {
         System.out.println( "Hellllilo World!" );
     }
